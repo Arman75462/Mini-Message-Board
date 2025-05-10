@@ -2,7 +2,7 @@
 
 A simple full-stack message board application built with:
 
-- **Frontend**: React + React Query
+- **Frontend**: React + React Query + CSS
 - **Backend**: Express.js
 
 ## Features
