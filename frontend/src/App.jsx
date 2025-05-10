@@ -4,11 +4,12 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 function App() {
   const queryClient = useQueryClient();
 
+  const apiURL =
+    "https://mini-message-board-88sn.onrender.com/new"; /* "http://localhost:3500/new" */
+
   // Fetch messages
   async function getMessages() {
-    const response = await fetch(
-      "https://mini-message-board-88sn.onrender.com/new"
-    );
+    const response = await fetch(apiURL);
 
     return response.json();
   }
@@ -26,14 +27,11 @@ function App() {
   // Send HTTP POST request (to create a message)
   const createMessage = useMutation({
     mutationFn: async (formData) => {
-      const response = await fetch(
-        "https://mini-message-board-88sn.onrender.com/new",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(apiURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
       return response.json();
     },
@@ -45,12 +43,9 @@ function App() {
   // Send HTTP DELETE request (to delete a message)
   const deleteMessage = useMutation({
     mutationFn: async (id) => {
-      const response = await fetch(
-        `https://mini-message-board-88sn.onrender.com/new/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${apiURL}/${id}`, {
+        method: "DELETE",
+      });
 
       if (!response.ok) {
         throw new Error("Failed to delete the message");

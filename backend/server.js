@@ -7,11 +7,11 @@ import messageRouter from "./routes/messageRouter.js";
 const server = express();
 
 // Middlewares running before routes
-server.use(
-  cors({
+server.use(cors());
+
+/* {
     origin: "https://minimessage-board.netlify.app",
-  })
-);
+  } */
 server.use(express.json()); // Convert form data into json
 server.use(express.urlencoded({ extended: true })); // To parse the form data into req.body
 

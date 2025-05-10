@@ -1,18 +1,20 @@
+import { v4 as uuidv4 } from "uuid";
+
 const messages = [
   {
-    id: 1,
+    id: uuidv4(),
     text: "Hi there!",
     user: "Amando",
     added: new Date(),
   },
   {
-    id: 2,
+    id: uuidv4(),
     text: "Hello World!",
     user: "Charles",
     added: new Date(),
   },
   {
-    id: 3,
+    id: uuidv4(),
     text: "Hey!",
     user: "Clara",
     added: new Date(),

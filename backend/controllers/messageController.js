@@ -1,11 +1,12 @@
 import messages from "../models/messageModel.js";
+import { v4 as uuidv4 } from "uuid";
 
 export function getMessages(req, res) {
   res.json(messages);
 }
 
 export function getSingleMessage(req, res) {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   const index = messages.findIndex((msg) => msg.id === id);
 
   if (index === -1) {
@@ -16,10 +17,8 @@ export function getSingleMessage(req, res) {
 }
 
 export function createMessage(req, res) {
-  const newId = messages.length + 1;
-
   const newMessage = {
-    id: newId,
+    id: uuidv4(),
     text: req.body.text,
     user: req.body.user,
     added: new Date(),
@@ -30,7 +29,7 @@ export function createMessage(req, res) {
 }
 
 export function deleteMessage(req, res) {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   const index = messages.findIndex((msg) => msg.id === id);
 
   if (index === -1) {
