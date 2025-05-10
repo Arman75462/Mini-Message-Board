@@ -7,7 +7,7 @@ function App() {
   // Fetch messages
   async function getMessages() {
     const response = await fetch(
-      "https://mini-message-board-88sn.onrender.com//new"
+      "https://mini-message-board-88sn.onrender.com/new"
     );
 
     return response.json();
@@ -27,7 +27,7 @@ function App() {
   const createMessage = useMutation({
     mutationFn: async (formData) => {
       const response = await fetch(
-        "https://mini-message-board-88sn.onrender.com//new",
+        "https://mini-message-board-88sn.onrender.com/new",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -46,7 +46,7 @@ function App() {
   const deleteMessage = useMutation({
     mutationFn: async (id) => {
       const response = await fetch(
-        `https://mini-message-board-88sn.onrender.com//new/${id}`,
+        `https://mini-message-board-88sn.onrender.com/new/${id}`,
         {
           method: "DELETE",
         }
