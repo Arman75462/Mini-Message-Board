@@ -1,5 +1,6 @@
 import "./App.css";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import Loader from "./components/Loader.jsx";
 
 function App() {
   const queryClient = useQueryClient();
@@ -71,7 +72,7 @@ function App() {
     form.reset();
   }
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loader />;
   if (isError) return <p>Error: {error.message}</p>;
 
   return (
